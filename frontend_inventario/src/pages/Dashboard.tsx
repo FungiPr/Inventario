@@ -372,7 +372,7 @@ function Dashboard() {
                 <div className="bg-emerald-50/50 p-10 rounded-[2.5rem] border border-emerald-100 text-center">
                   <div className="text-3xl mb-2">✅</div>
                   <p className="text-emerald-700 font-black text-sm uppercase tracking-widest">
-                    Inventario Saludable
+                    Inventario sin alertas
                   </p>
                   <p className="text-emerald-600/60 text-[10px] font-bold uppercase mt-1">
                     No hay productos bajo el mínimo

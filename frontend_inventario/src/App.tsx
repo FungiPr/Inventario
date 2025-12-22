@@ -6,21 +6,19 @@ import { useAuthStore } from './store/authStore';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import ItemsList from './pages/ItemsList';
 
 // Componente protector
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
-  // 👇 OBTENER initAuth e isInitialized del store
   const initAuth = useAuthStore(state => state.initAuth);
   const isInitialized = useAuthStore(state => state.isInitialized);
 
-  // 👇 EJECUTAR initAuth cuando la app carga
   useEffect(() => {
     initAuth();
   }, [initAuth]);
 
-  // 👇 MOSTRAR LOADING mientras se inicializa
   if (!isInitialized) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -38,7 +36,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Ruta raíz - Redirige a dashboard */}
+        {/* Ruta raíz */}
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
         
         {/* Rutas públicas */}
@@ -51,6 +49,15 @@ function App() {
           element={
             <ProtectedRoute>
               <Dashboard />
+            </ProtectedRoute>
+          } 
+        />
+
+        <Route 
+          path="/items" 
+          element={
+            <ProtectedRoute>
+              <ItemsList />
             </ProtectedRoute>
           } 
         />

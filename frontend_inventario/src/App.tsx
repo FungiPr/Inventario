@@ -7,6 +7,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import ItemsList from './pages/ItemsList';
+import ItemForm from './pages/ItemForm';
+
 
 // Componente protector
 import ProtectedRoute from './components/ProtectedRoute';
@@ -58,6 +60,26 @@ function App() {
           element={
             <ProtectedRoute>
               <ItemsList />
+            </ProtectedRoute>
+          } 
+        />
+
+        {/* Crear item */}
+        <Route 
+          path="/items/new" 
+          element={
+            <ProtectedRoute>
+              <ItemForm />
+            </ProtectedRoute>
+          } 
+        />
+
+        {/* Editar item */}
+        <Route 
+          path="/items/:id/edit" 
+          element={
+            <ProtectedRoute>
+              <ItemForm />
             </ProtectedRoute>
           } 
         />

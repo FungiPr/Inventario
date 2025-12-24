@@ -8,7 +8,9 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import ItemsList from './pages/ItemsList';
 import ItemForm from './pages/ItemForm';
-
+import ItemDetail from './pages/ItemDetail';
+import MovementForm from './pages/MovementForm';
+import CategoriesList from './pages/CategoriesList';
 
 // Componente protector
 import ProtectedRoute from './components/ProtectedRoute';
@@ -83,7 +85,33 @@ function App() {
             </ProtectedRoute>
           } 
         />
-
+        {/* Ver item */}
+        <Route 
+          path="/items/:id" 
+          element={
+            <ProtectedRoute>
+              <ItemDetail />
+            </ProtectedRoute>
+          } 
+        />
+        {/* Hacer movimientos */}
+        <Route 
+          path="/movements/new" 
+          element={
+            <ProtectedRoute>
+              <MovementForm />
+            </ProtectedRoute>
+          } 
+        />
+        {/* Crud categorias */}
+        <Route 
+          path="/categories" 
+          element={
+            <ProtectedRoute>
+              <CategoriesList />
+            </ProtectedRoute>
+          } 
+        />
         {/* Ruta 404 */}
         <Route path="*" element={<Navigate to="/dashboard" replace />} />
       </Routes>
